@@ -17,6 +17,16 @@ const { totalCost } = useContext(ProductContext);
 /* const handleSearchClick = () => {
     inputRefHandle();  
 }; */
+ 
+   const LogoutHandler = () =>{
+    confirm("Are you sure to logout?")
+      localStorage.removeItem("clientId");
+      localStorage.removeItem("clientName");
+      localStorage.removeItem('clientAddress');
+      localStorage.removeItem('clientEmail');
+      localStorage.removeItem('clientPhoneNo');
+      
+   }
 
   let clientAddress = (clientName => clientName ? clientName.slice(0, 45) : "No clientName found in localStorage.")(
       localStorage.getItem("clientAddress")
@@ -95,7 +105,11 @@ const { totalCost } = useContext(ProductContext);
             <Link  className='link' to="/MyAccount">Profile</Link>
             <Link  className='link' to="/CheckOut">Orders</Link>
             <Link  className='link' to="/landing">Favourites</Link>
-            <Link  className='link' to="/RigesterAndLogin">Logout</Link>
+            <Link  className='link' to="/RigesterAndLogin" >
+                <div onClick={LogoutHandler}>
+                    Logout
+                </div>
+            </Link>
           </div>
         </div>
       </div>
