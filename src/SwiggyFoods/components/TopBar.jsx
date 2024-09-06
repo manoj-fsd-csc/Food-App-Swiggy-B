@@ -92,10 +92,10 @@ const { totalCost } = useContext(ProductContext);
             </div>
           </Link>
           <div className="logindropdown-content">
-            <a href="/MyAccount">Profile</a>
-            <a href="/CheckOut">Orders</a>
-            <a href="/landing">Favourites</a>
-            <a href="/RigesterAndLogin">Logout</a>
+            <Link  className='link' to="/MyAccount">Profile</Link>
+            <Link  className='link' to="/CheckOut">Orders</Link>
+            <Link  className='link' to="/landing">Favourites</Link>
+            <Link  className='link' to="/RigesterAndLogin">Logout</Link>
           </div>
         </div>
       </div>
