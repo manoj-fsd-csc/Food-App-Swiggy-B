@@ -11,10 +11,12 @@ import { ProductContext } from '../../context/ProductContext';
 
 
 const TopBar = ({ inputRefHandle }) => {
-  const { totalCost } = useContext(ProductContext);
-  const handleSearchClick = () => {
-    inputRefHandle(); // Trigger the focus after navigation
-  };
+const { totalCost } = useContext(ProductContext);
+
+
+/* const handleSearchClick = () => {
+    inputRefHandle();  
+}; */
 
   let clientAddress = (clientName => clientName ? clientName.slice(0, 45) : "No clientName found in localStorage.")(
       localStorage.getItem("clientAddress")
@@ -46,7 +48,8 @@ const TopBar = ({ inputRefHandle }) => {
           </Link>
           </div>
       <div className='topBarLinks'>
-        <Link to='/search' className='link' onClick={handleSearchClick}>
+        {/* <Link to='/search' className='link' onClick={handleSearchClick}> */}
+        <Link to='/search' className='link' >
           <div className='searchIconBox'>
             <BiSearch className='searchIcon' />
             <div className='searchIconString'>Search</div>
@@ -69,7 +72,7 @@ const TopBar = ({ inputRefHandle }) => {
         </Link>
 
         <div className="dropdown">
-          <Link to='/CheckOut'>
+          <Link to='/CheckOut' className='link'>
             <BsBagPlus className='cartIcon' />
             <div className={totalCost === 0 ? "" : "dotB"}></div>
             {/* <div className="dropdown-content">
