@@ -62,13 +62,13 @@ const RegisterAndLogin = () => {
       });
   
       // Check if the response is not JSON
-      const contentType = response.headers.get("Content-Type");
-      if (!contentType || !contentType.includes("application/json")) {
-        const text = await response.text();
-        console.error("Unexpected response type:", text);
-        alert("Unexpected response from server.");
-        return;
-      }
+      // const contentType = response.headers.get("Content-Type");
+      // if (!contentType || !contentType.includes("application/json")) {
+      //   const text = await response.text();
+      //   console.error("Unexpected response type:", text);
+      //   // alert("Unexpected response from server.");
+      //   return;
+      // }
   
       const data = await response.json();
   
