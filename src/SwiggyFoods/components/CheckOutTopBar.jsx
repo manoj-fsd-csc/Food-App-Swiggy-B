@@ -1,10 +1,13 @@
 import React from 'react'
 import swiggyLogo from '../../assets/images/swiggy3.svg';  // Corrected import path
 import { IoHelpBuoyOutline } from "react-icons/io5";
- import { BsPerson } from "react-icons/bs";
+import { BsPerson } from "react-icons/bs";
 import { Link } from 'react-router-dom';
-function CheckOutTopBar() {
+ 
 
+
+function CheckOutTopBar() {
+ 
   return (
     <>
     <section className='checktopBarSection'>
@@ -28,20 +31,22 @@ function CheckOutTopBar() {
 
 
          
-              <div class="logindropdown">
-           <Link to='/MyAccount' className='link'>
-           <div className='logInBox'>
-            <div className='person'>< BsPerson /></div>
-            <div className='logins'><span>MANOJ</span></div>
-           </div>
-            </Link>   
-            <div className="logindropdown-content">
-            <a href="/MyAccount">Profile</a>
-            <a href="/CheckOut">Orders</a>
-            <a href="/landing">Favourites</a>
-            <a href="#option3">Logout</a>
-          </div>  
+              <div className="logindropdown">
+          <Link to='/MyAccount' className='link'>
+            <div className='logInBox'>
+              <div className='person'><BsPerson /></div>
+              <div className='logins'><span>MANOJ</span></div>
+            </div>
+          </Link>
+          <div className="logindropdown-content">
+            <Link  className='link' to="/MyAccount">Profile</Link>
+            <Link  className='link' to="/CheckOut">Orders</Link>
+            <Link  className='link' to="/landing">Favourites</Link>
+            <Link  className='link' to="/" >
+                     Logout
+             </Link>
           </div>
+        </div>
       </div>
       </section>
 

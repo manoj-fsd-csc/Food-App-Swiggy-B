@@ -65,16 +65,18 @@ export const ProductProvider = ({ children }) => {
     setTotalCost(newTotalCost);
   };
    
-  const logOut = () =>{
+  const LogoutHandler = () =>{
     confirm("Are you sure to logout?")
-      localStorage.removeItem("clientAddress");
-      localStorage.removeItem("clientEmail");
-      localStorage.removeItem('clientId');
-      localStorage.removeItem('clientName');
+      localStorage.removeItem("clientId");
+      localStorage.removeItem("clientName");
+      localStorage.removeItem('clientAddress');
+      localStorage.removeItem('clientEmail');
       localStorage.removeItem('clientPhoneNo');
-  }
+      
+   }
+
   return (
-    <ProductContext.Provider value={{ clickedProducts, addClickedProduct, removeClickedProduct, updateProductQuantity , totalCost, updateTotalCost }}>
+    <ProductContext.Provider value={{ clickedProducts, addClickedProduct, removeClickedProduct, updateProductQuantity , totalCost, updateTotalCost,LogoutHandler }}>
       {children}
     </ProductContext.Provider>
   );

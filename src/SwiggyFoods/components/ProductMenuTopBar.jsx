@@ -7,12 +7,12 @@ import { BsBagPlus } from "react-icons/bs";
 import { BsPerson } from "react-icons/bs";
 import swiggyLogo from '../../assets/images/swiggy3.svg';
 import { ProductContext } from '../../context/ProductContext';
-
+ 
 
 
 const ProductMenuTopBar = ({ inputRefHandle }) => {
   const { totalCost } = useContext(ProductContext);
-  const handleSearchClick = () => {
+   const handleSearchClick = () => {
     inputRefHandle();  
   };
 
@@ -76,7 +76,6 @@ const ProductMenuTopBar = ({ inputRefHandle }) => {
             </div> */}
           </Link>
         </div>
-
         <div className="logindropdown">
           <Link to='/MyAccount' className='link'>
             <div className='logInBox'>
@@ -85,10 +84,12 @@ const ProductMenuTopBar = ({ inputRefHandle }) => {
             </div>
           </Link>
           <div className="logindropdown-content">
-            <a href="/MyAccount">Profile</a>
-            <a href="/CheckOut">Orders</a>
-            <a href="/landing">Favourites</a>
-            <a href="/RigesterAndLogin">Logout</a>
+            <Link  className='link' to="/MyAccount">Profile</Link>
+            <Link  className='link' to="/CheckOut">Orders</Link>
+            <Link  className='link' to="/landing">Favourites</Link>
+            <Link  className='link' to="/" >
+                     Logout
+             </Link>
           </div>
         </div>
       </div>

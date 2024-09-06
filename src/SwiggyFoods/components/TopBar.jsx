@@ -10,7 +10,7 @@ import { ProductContext } from '../../context/ProductContext';
 
 
 
-const TopBar = ({ inputRefHandle }) => {
+const TopBar = ( ) => {
 const { totalCost } = useContext(ProductContext);
 
 
@@ -105,7 +105,7 @@ const { totalCost } = useContext(ProductContext);
             <Link  className='link' to="/MyAccount">Profile</Link>
             <Link  className='link' to="/CheckOut">Orders</Link>
             <Link  className='link' to="/landing">Favourites</Link>
-            <Link  className='link' to="/RigesterAndLogin" >
+            <Link  className='link' to="/" >
                 <div onClick={LogoutHandler}>
                     Logout
                 </div>
