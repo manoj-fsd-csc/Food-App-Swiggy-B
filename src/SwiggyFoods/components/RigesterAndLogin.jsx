@@ -39,10 +39,10 @@ const RegisterAndLogin = () => {
         setPassword("");
         setPhoneNo("");
         setAddress("");
-        console.log(data);
+        // console.log(data);
         alert("Vendor Registered Successfully");
       }
-      console.log(response);
+      // console.log(response);
     } catch (error) {
       console.error("Registration Failed", error);
       alert("Registration Failed");
@@ -79,7 +79,7 @@ const RegisterAndLogin = () => {
         localStorage.setItem("loginTokenC", data.tokenC);
   
         const clientId = data.clientId;
-        console.log("Checking for clientId:", clientId);
+        // console.log("Checking for clientId:", clientId);
         
         const clientResponse = await fetch(`${API_URL}/client/single-Client/${clientId}`);
         const clientData = await clientResponse.json();
