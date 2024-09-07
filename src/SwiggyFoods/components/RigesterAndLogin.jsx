@@ -90,7 +90,7 @@ const RegisterAndLogin = () => {
            const clientPhoneNo = clientData.client.phoneNo;
           const clientAddress = clientData.client.address;
            
-          console.log("Checking for clientData:", clientData);
+          // console.log("Checking for clientData:", clientData);
           localStorage.setItem("clientId", clientId);
           localStorage.setItem("clientName", clientName);
           localStorage.setItem("clientEmail", clientEmail);
