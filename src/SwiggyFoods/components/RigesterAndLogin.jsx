@@ -5,7 +5,8 @@ import search from "../../assets/images/search.png"
 import facebook from "../../assets/images/facebook.png"
 import github from "../../assets/images/github.png"
 import linkedin from "../../assets/images/linkedin.png"
- 
+import { FaEye, FaEyeSlash } from 'react-icons/fa'; 
+
 const RegisterAndLogin = () => {
   const [isActive, setIsActive] = useState(false);
   const [username, setUsername] = useState("");
@@ -13,7 +14,21 @@ const RegisterAndLogin = () => {
   const [password, setPassword] = useState("");
   const [phoneNo, setPhoneNo] = useState("");
   const [address, setAddress] = useState("");
-  
+  const [showPassword, setShowPassword] = useState(false);
+
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+const [isValid, setIsValid] = useState({
+  username: null,
+  email: null,
+  password: null,
+  phoneNo: null,
+  address: null,
+});
+
   const navigate = useNavigate(); 
 
   const handleRegisterClick = () => {
@@ -23,7 +38,7 @@ const RegisterAndLogin = () => {
   const handleLoginClick = () => {
     setIsActive(false);
   };
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -114,7 +129,44 @@ const RegisterAndLogin = () => {
   };
   
 
+  const validateInput = (value, type) => {
+    // const namePattern = /^[a-zA-ZÀ-ÖØ-öø-ÿ'’\- ]{2,50}$/;
+    const namePattern = /^[a-zA-Z]+( [a-zA-Z]+)*$/;
+    // const namePattern = /^[a-zA-Z]+( [a-zA-Z]+ )*$/;
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&#^_])[A-Za-z\d@$!%*?&#^_]{6,12}$/;
+    const phonePattern = /^[0-9]{10}$/;
 
+    let isValidField;
+
+    switch (type) {
+      case "username":
+        isValidField = namePattern.test(value);
+        setUsername(value);
+        break;
+      case "email":
+        isValidField = emailPattern.test(value);
+        setEmail(value);
+        break;
+      case "password":
+        isValidField = passwordPattern.test(value);
+        setPassword(value);
+        
+        break;
+      case "phoneNo":
+        isValidField = phonePattern.test(value);
+        setPhoneNo(value);
+        break;
+      case "address":
+        isValidField = value.trim() !== "";
+        setAddress(value);
+        break;
+        default:
+        break;
+    }
+
+    setIsValid((prev) => ({ ...prev, [type]: isValidField }));
+  };
 
   return (
     <>
@@ -126,20 +178,16 @@ const RegisterAndLogin = () => {
               <div className="social-iconsRL">
                 <a href="#" className="iconRL">
                  <img src={search}  alt="" />
-                 {/* <i className="fa-brands fa-google-plus-g"></i> */}
-                </a>
+                 </a>
                 <a href="#" className="iconRL">
                  <img src={facebook}  alt="" />
-                  {/* <i className="fa-brands fa-facebook-f"></i> */}
-                </a>
+                 </a>
                 <a href="#" className="iconRL">
                  <img src={github}  alt="" />
-                  {/* <i className="fa-brands fa-github"></i> */}
-                </a>
+                 </a>
                 <a href="#" className="iconRL">
                  <img src={linkedin}  alt="" />
-                  {/* <i className="fa-brands fa-linkedin-in"></i> */}
-                </a>
+                 </a>
               </div>
               <span>or use your email for registration</span>
               <input
@@ -147,42 +195,66 @@ const RegisterAndLogin = () => {
                 type="text"
                 name="username"
                 value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => validateInput(e.target.value, "username")}
                 placeholder="Name"
+                onInvalid={(e) => e.target.setCustomValidity('Fill the name, please')}
+                onInput={(e) => e.target.setCustomValidity('')}
+                className={isValid.username === null ? "" : isValid.username ? "valid" : "invalid"}
               />
               <input
                 required
                 type="email"
                 name="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
+                onChange={(e) => validateInput(e.target.value, "email")}
+                placeholder="Enter your email"
+                className={isValid.email === null ? "" : isValid.email ? "valid" : "invalid"}
+                onInvalid={(e) => e.target.setCustomValidity('Fill the email, please')}
+                onInput={(e) => e.target.setCustomValidity('')}
               />
+              <div className="password-input-container"> 
               <input
                 required
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => validateInput(e.target.value, "password")}
                 placeholder="Password"
+                className={isValid.password === null ? "" : isValid.password ? "valid" : "invalid"}
+                onInvalid={(e) =>
+                  e.target.setCustomValidity(
+                    'password must be at least one letter,number,special character and minimum 6 character maximum 12 character  EG: Abc_123'
+                  )
+                }
+                onInput={(e) => e.target.setCustomValidity('')}
               />
-              <input
+         
+        {showPassword ? <FaEye  className="passworButton"  onClick={togglePasswordVisibility} />:<FaEyeSlash className="passworButton"  onClick={togglePasswordVisibility} />  }
+       
+    </div>
+    <input
                 required
                 type="text"
                 name="phoneNo"
                 value={phoneNo}
-                onChange={(e) => setPhoneNo(e.target.value)}
+                onChange={(e) => validateInput(e.target.value, "phoneNo")}
                 placeholder="Phone no"
+                className={isValid.phoneNo === null ? "" : isValid.phoneNo ? "valid" : "invalid"}
+                onInvalid={(e) => e.target.setCustomValidity('Fill the Phone No, please')}
+                onInput={(e) => e.target.setCustomValidity('')}
               />
                 <div className="addressBoxC">
                 <input
-                required
-                type="text"
-                name="address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-                placeholder="Address"
-              />
+                  required
+                  type="text"
+                  name="address"
+                  value={address}
+                  onChange={(e) => validateInput(e.target.value, "address")}
+                  placeholder="Address"
+                  className={isValid.address === null ? "" : isValid.address ? "valid" : "invalid"}
+                  onInvalid={(e) => e.target.setCustomValidity('Fill the address, please')}
+                  onInput={(e) => e.target.setCustomValidity('')}  
+                />
               <div className="addressEg">EG:-<span>No:2,Murali Street,Kadambathur,Thiruvallur</span></div>
 
                 </div>
@@ -225,17 +297,30 @@ const RegisterAndLogin = () => {
                 type="email"
                 name="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Email"
+                onChange={(e) => validateInput(e.target.value, "email")}
+                placeholder="Enter your email"
+                className={isValid.email === null ? "" : isValid.email ? "valid" : "invalid"}
               />
+               <div className="password-input-container"> 
               <input
                 required
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 name="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={(e) => validateInput(e.target.value, "password")}
                 placeholder="Password"
+                className={isValid.password === null ? "" : isValid.password ? "valid" : "invalid"}
+                onInvalid={(e) =>
+                  e.target.setCustomValidity(
+                    'The password must contain at least one letter, one number, and one special character (e.g., ABC_123).'
+                  )
+                }
+                onInput={(e) => e.target.setCustomValidity('')}
               />
+         
+        {showPassword ? <FaEye  className="passworButton"  onClick={togglePasswordVisibility} />:<FaEyeSlash className="passworButton"  onClick={togglePasswordVisibility} />  }
+       
+    </div>
               <a href="#" className="forgetPassword">Forget Your Password?</a>
               <button className="signInBtn">Sign In</button>
             </form>
