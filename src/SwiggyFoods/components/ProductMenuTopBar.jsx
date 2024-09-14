@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { BiSearch } from "react-icons/bi";
 import { BiSolidOffer } from "react-icons/bi";
@@ -7,12 +7,17 @@ import { BsBagPlus } from "react-icons/bs";
 import { BsPerson } from "react-icons/bs";
 import swiggyLogo from '../../assets/images/swiggy3.svg';
 import { ProductContext } from '../../context/ProductContext';
- 
+
 
 
 const ProductMenuTopBar = ({ inputRefHandle }) => {
-  const { totalCost } = useContext(ProductContext);
-   const handleSearchClick = () => {
+
+ 
+   const { existingProductC } = useContext(ProductContext);
+ 
+ 
+  
+  const handleSearchClick = () => {
     inputRefHandle();  
   };
 
@@ -56,8 +61,8 @@ const ProductMenuTopBar = ({ inputRefHandle }) => {
           </div>
         </Link>
 
-        <Link to='/HelpPage' className='link'>
-       {/* to='https://www.swiggy.com/support'  */}
+        {/* <Link to='/HelpPage' className='link'> */}
+        <Link to='https://www.swiggy.com/support' className='link'>
           <div className='helpBox'>
             <IoHelpBuoyOutline className='helpIcon' />
             <div className='helpIconString'>Help</div>
@@ -67,15 +72,10 @@ const ProductMenuTopBar = ({ inputRefHandle }) => {
         <div className="dropdown">
           <Link to='/CheckOut'>
             <BsBagPlus className='cartIcon' />
-            <div className={totalCost === 0 ? "" : "dotB"}></div>
-            {/* <div className="dropdown-content">
-              <a href="#option1">Profile</a>
-              <a href="#option1">Orders</a>
-              <a href="#option2">Favourites</a>
-              <a href="#option3">Logout</a>
-            </div> */}
+            <div className={existingProductC === 0 ? "" : "dotB"}></div>
           </Link>
         </div>
+
         <div className="logindropdown">
           <Link to='/MyAccount' className='link'>
             <div className='logInBox'>
@@ -84,12 +84,10 @@ const ProductMenuTopBar = ({ inputRefHandle }) => {
             </div>
           </Link>
           <div className="logindropdown-content">
-            <Link  className='link' to="/MyAccount">Profile</Link>
-            <Link  className='link' to="/CheckOut">Orders</Link>
-            <Link  className='link' to="/landing">Favourites</Link>
-            <Link  className='link' to="/" >
-                     Logout
-             </Link>
+            <a href="/MyAccount">Profile</a>
+            <a href="/CheckOut">Orders</a>
+            <a href="/landing">Favourites</a>
+            <a href="/RigesterAndLogin">Logout</a>
           </div>
         </div>
       </div>
@@ -98,6 +96,7 @@ const ProductMenuTopBar = ({ inputRefHandle }) => {
 }
 
 export default ProductMenuTopBar;
+
 
 
 

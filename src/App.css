@@ -1,4 +1,4 @@
-
+ 
 
 /* .containerRL button{
 .containerRL .signInBtn .signUpBtn{
@@ -76,7 +76,6 @@ body{
 .swiggyPngLogo:hover{
  height: 55px;
   width: 55px;
-  /* filter:drop-shadow(2px 2px 20px orangered) */
 }
 .companyTitle{
   /* border: 2px solid red; */
@@ -1094,7 +1093,7 @@ background-color: #cdced6;
 .gallery img:hover{
   width: 150px;
   height: 150px;
- }
+}
 /* *****************LandinPage***************** */
 
 
@@ -1635,7 +1634,46 @@ font-size: 18px;
   /* font-size: 20px; */
   margin-bottom: 20px;
 }
+.restaurantBuildingBox{
+  /* border: 1px solid rgb(238, 27, 27); */
+  align-items: center;
+  display: flex;
+}
+.restaurantBuildingName{
+  margin-left: 15px;
+  font-size: 23px;
+  font-weight: 650;
+}
+.restaurantBuildingImg{
+  height: 50px;
+  width: 50px;
+}
+.restaurantBuildingLocationBox{
+  /* border: 1px solid rgb(238, 27, 27); */
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+.restaurantBuildingLocationName{
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: 400;
+}
+.restaurantBuildingLocation{
+  height: 40px;
+  width: 40px;
+}
+.restaurantvegimg{
+  height: 15px;
+  width: 15px;
+  margin-left: 20px;
+}
+.restaurantnonvegimg{
+  height: 15px;
+  width: 15px;
+  margin-left: 8px;
 
+}
 .productAddButton{
   border: 1px solid rgb(238, 27, 27);
   height: 30px;
@@ -1883,8 +1921,8 @@ font-size: 18px;
 .containerRL button{
   
   background-color: orangered;
+  color: #fff;
   cursor: pointer;
-    color: #fff;
     font-size: 12px;
     padding: 10px 45px;
     border: 1px solid transparent;
@@ -1896,7 +1934,8 @@ font-size: 18px;
      box-shadow:rgb(255, 100, 50) 0px 2px 4px 0px,  orangered 0px 2px 16px 0px;  }
     
  .containerRL button:hover{
-       box-shadow: none;
+   box-shadow: none;
+
       }
       .containerRL button.hiddenRL{
         cursor: pointer;
@@ -1918,15 +1957,13 @@ font-size: 18px;
 
 .containerRL input{
   /* border: 1px solid red; */
-  border: none;
-    background-color: #eee;
+     background-color: #eee;
     margin: 8px 0;
     padding: 10px 15px;
     font-size: 13px;
     border-radius: 8px;
     width: 100%;
-    outline: none;
-}
+ }
    .addressBoxC{
     border: none;
     /* border: 1px solid red; */
@@ -1942,16 +1979,14 @@ font-size: 18px;
       align-items: center;
    }
    .addressBoxC input{
-      border: none;
-      /* border: 1px solid red; */
+       /* border: 1px solid red; */
       background-color:#eeee;
       padding: 10px 15px;
       font-size: 13px;
       border-radius: 8px;
       width: 100%;
       height: 80%;
-      outline: none;
-    }
+     }
  
     .addressEg span{
      color: gray;
@@ -1989,24 +2024,7 @@ font-size: 18px;
     z-index: 5;
     animation: move 0.6s;
 }
-/* .addressBox{
-  border: 1px solid red;
-  width: 100x;
-  height: 20px;
-  display: flex;
-  flex-direction: column;
-  }
-  .addressBox input{  background-color: #eee;
-  border: none;
-  margin: 8px 0;
-  padding: 10px 15px;
-  font-size: 13px;
-  border-radius: 8px;
-  width: 100%;
-  outline: none;}
-  .addressBox{} */
-
-
+ 
 @keyframes move{
     0%, 49.99%{
         opacity: 0;
@@ -2112,156 +2130,54 @@ font-size: 18px;
   color: red;
  }
 
- /* ***************Account*************** */
- .accountPage{
-  /* border: 1px solid red; */
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
+ input {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  outline: none;
 }
 
-.accountBox{
-  /* border: 1px solid red; */
-  height:auto;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 50px;
+input.valid {
+  border-color: green;
 }
 
-.accountImage{
-  /* border: 1px solid rgb(13, 194, 185); */
-  height: 360px;
-  width: 400px;
+input.invalid {
+  border-color: red;
 }
-.accountImage img{
-  /* border: 1px solid rgb(231, 135, 8); */
-  height: 360px;
-  width: 400px;
+input {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
 }
-.accountString{
+
+input.valid {
+  border-color: green;
+}
+
+input.invalid {
+  border-color: red;
+}
+.password-input-container {
+  /* border: 1px solid red; */
+  width: 110%;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  line-height: 5px;
  }
 
-.accountBUTTON{
-  height: 38px;
-  width: 280px;
-  background-color: orangered;
-  color: white;
-  border: none;
-  font-weight: 600;
-  margin-top: 20px;
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;    
-}
-.accountBUTTON:hover{
-box-shadow: none;
-}
  
 
-
-
-
-
-
-
-
-/* 
-@media (max-width: 576px) {
-  .topBarSection {
-    width: 100%;
-    max-width:78% ;
-    border: 1px solid red;
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    padding: 0px 0px ;
-  }
-  .landingSection {
-      padding: 0 10px;
-  }
-  .itemSection {
-      margin-top: 80px;
-  }
-  h3 {
-      font-weight: 800;
-      font-size: medium;
-      color: rgb(34, 30, 30);
-  }
-  .chainSection {
-      height: 190px;
-  }
-  .vendorBox img {
-      width: 260px;
-      height: 180px;
-      flex: 0 0 auto;
-      margin-right: 30px;
-      object-fit: cover;
-      border-radius: 10px;
-  }
-  .mediaChainSection {
-      margin-top: -30px;
-  }
-  .firmSection {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin-left: 20px;
-  }
-  .firmOffer {
-      position: absolute;
-      width: 100%;
-      max-width: 88%;
-  }
-  .firmGroup img {
-      width: 300px;
-  }
-  .productSection {
-      padding: 0 10px;
-  }
-  .productSection h3 {
-      text-align: center;
-      background-color: orange;
-  }
-  .searchBar {
-      border: 1px solid rgb(214, 20, 20);
-      width: 50%;
-      display: flex;
-      justify-content: center;
-      display: none;
-    }
-    .searchBar input {
-      width: 100%;
-      max-width: 50%;
-    }
-    
-    .userAuth {
-      margin-right: 10px;
-   }
-  .btnIcons {
-      font-size: large;
-      gap: 2px;
-  }
-  .chainTitle {
-      position: relative;
-      top: -10px;
-  }
-  .loaderSection {
-      position: relative;
-      background: transparent;
-      display: flex;
-      flex-direction: column;
-      top: 100px;
-  }
+.passworButton{
+  position: absolute;
+  right: 0.5rem;
+    border: none;
+  cursor: pointer;
+  color: #333;
+  font-size: 1rem;
 }
- */
+
+
+ 

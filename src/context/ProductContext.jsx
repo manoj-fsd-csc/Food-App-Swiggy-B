@@ -5,6 +5,8 @@ export const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
   const [clickedProducts, setClickedProducts] = useState({});
   const [totalCost, setTotalCost] = useState(0); 
+  // const [existingProduct, setExistingProduct] = useState(0); 
+  const [existingProductC, setExistingProductC] = useState(0); 
 
   const addClickedProduct = (product) => {
     setClickedProducts((prevState) => {
@@ -60,23 +62,21 @@ export const ProductProvider = ({ children }) => {
       }
     });
   };
-
+ 
   const updateTotalCost = (newTotalCost) => {
     setTotalCost(newTotalCost);
   };
    
-  const LogoutHandler = () =>{
+  const logOut = () =>{
     confirm("Are you sure to logout?")
-      localStorage.removeItem("clientId");
-      localStorage.removeItem("clientName");
-      localStorage.removeItem('clientAddress');
-      localStorage.removeItem('clientEmail');
+      localStorage.removeItem("clientAddress");
+      localStorage.removeItem("clientEmail");
+      localStorage.removeItem('clientId');
+      localStorage.removeItem('clientName');
       localStorage.removeItem('clientPhoneNo');
-      
-   }
-
+  }
   return (
-    <ProductContext.Provider value={{ clickedProducts, addClickedProduct, removeClickedProduct, updateProductQuantity , totalCost, updateTotalCost,LogoutHandler }}>
+    <ProductContext.Provider value={{ clickedProducts, addClickedProduct, removeClickedProduct, updateProductQuantity , totalCost, updateTotalCost,existingProductC,setExistingProductC }}>
       {children}
     </ProductContext.Provider>
   );

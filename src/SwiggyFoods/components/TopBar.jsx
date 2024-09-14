@@ -101,7 +101,7 @@ const { totalCost } = useContext(ProductContext);
               <div className='logins'><span>MANOJ</span></div>
             </div>
           </Link>
-          <div className="logindropdown-content">
+          <div className="logindropdown-content">a
             <Link  className='link' to="/MyAccount">Profile</Link>
             <Link  className='link' to="/CheckOut">Orders</Link>
             <Link  className='link' to="/landing">Favourites</Link>
